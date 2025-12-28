@@ -1,0 +1,38 @@
+#include<iostream>
+#include<tuple>
+using namespace std;
+
+int main() {
+	// using 3rd variable
+	int a = 3, b = 4, c;
+	cout << "before swap: \n a: " << a << " b: " << b<< endl;
+	 c = a;
+	 a = b;
+	 b = c;
+	 cout << "after swap: \n a: " << a << " b: " << b << endl;
+	 // no 3rd variable
+	 a = a + b;//4+3=7      
+	 b = a - b;//7-3=4
+	 a = a - b;//7-4=3
+
+	 cout << "after no 3rd variable swap: \n a: " << a << " b: " << b << endl;
+	 a = a ^ b;// 3->011 xor 4-> 100  111
+	 b = a ^ b;// 111 xor 100  011
+	 a = a ^ b;// 111 xor 011  100
+
+	 cout << "after  bitwise xor swap: \n a: " << a << " b: " << b << endl;
+
+	 swap(a, b);
+	 cout << "after  swap funtion swap: \n a: " << a << " b: " << b << endl;
+	 int* aa = &a;
+	 int* bb = &b;
+	 int tem = *aa;
+	 *aa = *bb;
+	 *bb = tem;
+
+	 cout << "after  pointers swap: \n a: " << a << " b: " << b << endl;
+	 tie(a, b) = make_tuple(b, a);
+
+	 cout << "after  using tuple swap: \n a: " << a << " b: " << b << endl;
+	 return 0;
+}
