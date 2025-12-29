@@ -22,6 +22,15 @@ int main() {
 	cout << "using ceiling math : " << digit << endl;
 
 
+	int bit = -a;int counts = 0;
+	do {
+		counts++;
+		bit=bit >> 1;
+
+	} while (bit != 0);
+	cout << "Total bit we have is " << counts << endl;
+
+
 	//using string now
 	digit = to_string(abs(a)).length();
 	cout << "using string " << digit << endl;
