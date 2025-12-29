@@ -1,0 +1,36 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+using namespace std;
+int countDigit(int n);
+int main() {
+
+	int a =-234234;int count = 0;
+	if (a < 0) a = -a;
+
+	do {
+		count++;
+		a = a / 10;
+	} while (a != 0);
+	cout << "classic way " << count << endl;
+
+
+	a = -234234;
+	int digit = (a == 0) ? 1 : floor(log10(abs(a)) + 1);
+	cout << "floor math :" << digit << endl;
+	digit = (a == 0) ? 1 : ceil(log10(abs(a)));
+	cout << "using ceiling math : " << digit << endl;
+
+
+	//using string now
+	digit = to_string(abs(a)).length();
+	cout << "using string " << digit << endl;
+
+	cout <<"using recursion: "<< countDigit(a);
+	return 0;
+}
+int countDigit(int n) {
+	n = abs(n);
+	if (n < 10) { return 1; }// basecase
+	return 1 + countDigit(n / 10);// recusive case
+}
